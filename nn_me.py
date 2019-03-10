@@ -84,7 +84,7 @@ def total_cost(J_content,J_style,alpha=10,beta=40):
 
 #all the cost part is done!!
 
-tf.reset_default_graph()
+tf.get_default_graph()
 
 sess=tf.InteractiveSession()
 
@@ -139,8 +139,8 @@ def model_nn(sess,input_image,num_iterations=200):
 			print("total cost ="+str(Jt))
 			print("content cost = "+str(Jc))
 			print("style cost = "+str(Js))
-			save_image("output/"+str(i)+".png",generated_image)
-	save_image('output/generated_image.jpg',generated_image)
+			save_image("outputs/"+str(i)+".png",generated_image)
+	save_image('outputs/generated_image.jpg',generated_image)
 	return generated_image
 
 model_nn(sess,generated_image)
